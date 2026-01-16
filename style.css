@@ -131,3 +131,26 @@ footer {
   color: white; /* optional, agar text color bhi change karna ho */
   cursor: pointer; /* optional, pointer dikhane ke liye */
 }
+  /* Button base style (agar tumhare paas pehle se hai, wahi rehne do) */
+.btn {
+  position: relative;      /* required for light effect */
+  overflow: hidden;        /* light stays inside button */
+  transition: background 0.3s ease;
+  cursor: pointer;
+}
+
+/* Existing hover color */
+.btn:hover {
+  background: #159a80;
+}
+
+/* Light effect */
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background
+
