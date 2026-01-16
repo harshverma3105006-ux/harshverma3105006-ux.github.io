@@ -128,4 +128,6 @@ footer {
 }
 .btn:hover {
   background: #159a80;
+  color: white; /* optional, agar text color bhi change karna ho */
+  cursor: pointer; /* optional, pointer dikhane ke liye */
 }
