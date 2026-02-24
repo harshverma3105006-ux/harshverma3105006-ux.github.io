@@ -1,14 +1,14 @@
-/* Reset */
-
 *{
 
 margin:0;
 padding:0;
+
 box-sizing:border-box;
 
 font-family:Arial;
 
 }
+
 
 html{
 
@@ -29,19 +29,42 @@ text-align:center;
 
 padding:80px 20px;
 
-}
-
-header h1{
-
-font-size:48px;
-
-margin-bottom:10px;
+animation:fade 2s;
 
 }
 
-header p{
 
-font-size:20px;
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+transform:translateY(-20px);
+
+}
+
+to{
+
+opacity:1;
+
+}
+
+}
+
+
+
+/* Profile */
+
+.profile{
+
+width:150px;
+
+height:150px;
+
+border-radius:50%;
+
+border:4px solid white;
 
 margin-bottom:20px;
 
@@ -69,7 +92,10 @@ color:white;
 
 cursor:pointer;
 
+margin:10px;
+
 }
+
 
 .btn:hover{
 
@@ -77,9 +103,6 @@ background:#159a80;
 
 }
 
-
-
-/* Glow effect */
 
 .btn::before{
 
@@ -92,6 +115,7 @@ top:var(--y,50%);
 left:var(--x,50%);
 
 width:0;
+
 height:0;
 
 background:rgba(255,255,255,0.3);
@@ -104,11 +128,52 @@ transition:0.4s;
 
 }
 
+
 .btn:hover::before{
 
 width:200px;
 
 height:200px;
+
+}
+
+
+
+/* Dark Button */
+
+#dark{
+
+padding:10px 20px;
+
+border:none;
+
+border-radius:8px;
+
+cursor:pointer;
+
+}
+
+
+
+/* CV Button */
+
+.cv{
+
+display:inline-block;
+
+margin-top:10px;
+
+background:white;
+
+color:#0a2540;
+
+padding:10px 20px;
+
+border-radius:8px;
+
+text-decoration:none;
+
+font-weight:bold;
 
 }
 
@@ -124,6 +189,7 @@ text-align:center;
 
 }
 
+
 section h2{
 
 font-size:32px;
@@ -133,6 +199,7 @@ margin-bottom:20px;
 color:#0a2540;
 
 }
+
 
 section p{
 
@@ -153,6 +220,7 @@ font-size:18px;
 display:grid;
 
 grid-template-columns:
+
 repeat(auto-fit,minmax(150px,1fr));
 
 gap:20px;
@@ -162,6 +230,7 @@ max-width:900px;
 margin:auto;
 
 }
+
 
 .skill-card{
 
@@ -176,6 +245,7 @@ border-radius:12px;
 transition:0.3s;
 
 }
+
 
 .skill-card:hover{
 
@@ -201,6 +271,7 @@ margin-top:20px;
 
 }
 
+
 .social-btn{
 
 background:#1abc9c;
@@ -219,6 +290,7 @@ overflow:hidden;
 
 }
 
+
 .social-btn:hover{
 
 background:#159a80;
@@ -226,7 +298,6 @@ background:#159a80;
 }
 
 
-/* Glow */
 
 .social-btn::before{
 
@@ -252,10 +323,51 @@ transition:0.4s;
 
 }
 
+
 .social-btn:hover::before{
 
 width:150px;
 
 height:150px;
+
+}
+
+
+
+/* Dark Mode */
+
+.dark{
+
+background:#111;
+
+color:white;
+
+}
+
+
+.dark section h2{
+
+color:#1abc9c;
+
+}
+
+
+.dark .skill-card{
+
+background:#333;
+
+}
+
+
+
+/* Mobile */
+
+@media(max-width:600px){
+
+header h1{
+
+font-size:32px;
+
+}
 
 }
