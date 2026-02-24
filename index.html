@@ -1,65 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Harsh Verma Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Harsh Verma | Portfolio</title>
+
+<meta name="description" content="Harsh Verma UX Designer and Web Developer Portfolio">
+
+<link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
 
-  <!-- Header -->
-  <header>
-    <h1>Harsh Verma</h1>
-    <p>UX Designer & Developer</p>
-    <button class="btn">Hire Me</button>
-  </header>
+<!-- Navbar -->
+<nav>
 
-  <!-- About Section -->
-  <section id="about">
-    <h2>About Me</h2>
-    <p>Hello! I am Harsh Verma, passionate about UX design and web development. I create modern, responsive, and interactive websites.</p>
-  </section>
+<h2>Harsh</h2>
 
-  <!-- Skills Section -->
-  <section id="skills">
-    <h2>Skills</h2>
-    <div class="skills-grid">
-      <div class="skill-card">HTML</div>
-      <div class="skill-card">CSS</div>
-      <div class="skill-card">JavaScript</div>
-      <div class="skill-card">React</div>
-      <div class="skill-card">UX Design</div>
-      <div class="skill-card">Python</div>
-    </div>
-  <!-- Contact Section -->
-<section id="contact">
-  <h2>Contact Me</h2>
-  <p>Feel free to reach out via social media or email.</p>
+<ul>
 
-  <!-- Social buttons -->
-  <div class="social-links">
-    <a href="https://www.linkedin.com/in/Harsh Verma" target="_blank" class="social-btn">LinkedIn</a>
-    <a href="https://www.instagram.com/harshverma_456" target="_blank" class="social-btn">Instagram</a>
-    <a href="mailto:harshverma3105006@gmail.com" class="social-btn">Email</a>
-  </div>
+<li><a href="#about">About</a></li>
+
+<li><a href="#skills">Skills</a></li>
+
+<li><a href="#projects">Projects</a></li>
+
+<li><a href="#contact">Contact</a></li>
+
+</ul>
+
+</nav>
+
+
+<!-- Header -->
+
+<header>
+
+<h1>Harsh Verma</h1>
+
+<p>UX Designer & Web Developer</p>
+
+<button class="btn">
+
+Hire Me
+
+</button>
+
+</header>
+
+
+
+<!-- About -->
+
+<section id="about">
+
+<h2>About Me</h2>
+
+<p>
+
+Hello! I am Harsh Verma.
+
+I create modern websites and user-friendly designs.
+
+</p>
+
 </section>
 
 
+
+<!-- Skills -->
+
+<section id="skills">
+
+<h2>Skills</h2>
+
+<div class="skills-grid">
+
+<div class="skill-card">HTML</div>
+
+<div class="skill-card">CSS</div>
+
+<div class="skill-card">JavaScript</div>
+
+<div class="skill-card">React</div>
+
+<div class="skill-card">Python</div>
+
+<div class="skill-card">UX Design</div>
+
+</div>
+
+</section>
+
+
+
+<!-- Projects -->
+
+<section id="projects">
+
+<h2>Projects</h2>
+
+<div class="project">
+
+<h3>Portfolio Website</h3>
+
+<p>Responsive portfolio website using HTML CSS JS</p>
+
+</div>
+
+</section>
+
+
+
+<!-- Contact -->
+
+<section id="contact">
+
+<h2>Contact</h2>
+
+<div class="social-links">
+
+<a href="mailto:harshverma3105006@gmail.com"
+
+class="social-btn">
+
+Email
+
+</a>
+
+<a href="https://www.instagram.com/harshverma_456"
+
+class="social-btn">
+
+Instagram
+
+</a>
+
+<a href="https://www.linkedin.com/"
+
+class="social-btn">
+
+LinkedIn
+
+</a>
+
+</div>
+
+</section>
+
+
+<footer>
+
+© 2026 Harsh Verma
+
+</footer>
+
+
 <script>
-  // Cursor-following effect for all buttons (header + social)
-  const btns = document.querySelectorAll(".btn, .social-btn");
-  btns.forEach(btn => {
-    btn.addEventListener("mousemove", (e) => {
-      const rect = e.target.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      btn.style.setProperty("--x", x + "px");
-      btn.style.setProperty("--y", y + "px");
-    });
-  });
+
+const btns=document.querySelectorAll(".btn,.social-btn");
+
+btns.forEach(btn=>{
+
+btn.addEventListener("mousemove",(e)=>{
+
+const rect=btn.getBoundingClientRect();
+
+const x=e.clientX-rect.left;
+
+const y=e.clientY-rect.top;
+
+btn.style.setProperty("--x",x+"px");
+
+btn.style.setProperty("--y",y+"px");
+
+});
+
+});
+
 </script>
 
 
 </body>
+
 </html>
