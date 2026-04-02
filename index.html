@@ -6,37 +6,39 @@
 
 <title>Harsh Verma | Portfolio</title>
 
-<meta name="description" content="Harsh Verma UX Designer and Web Developer Portfolio">
+<meta name="description" content="Harsh Verma UX Designer & Developer">
 
 <link rel="stylesheet" href="style.css">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
 </head>
 
 <body>
 
+<!-- Navbar -->
+<nav>
+<a href="#">Home</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<!-- Hero Section -->
 <header>
 <img src="profile.jpg.jpeg" class="profile">
 
 <h1>Harsh Verma</h1>
-<p>UX Designer & Web Developer</p>
+
+<p class="typing"></p>
 
 <button class="btn">Hire Me</button>
 <button id="dark" class="btn">🌙 Dark Mode</button>
-
-<br>
-
-<a href="cv.pdf" download class="btn">Download CV</a>
 </header>
 
-
-<section>
-<h2>About Me</h2>
-<p>I design modern, user-friendly and responsive websites with smooth UX.</p>
-</section>
-
-
-<section>
+<!-- Skills -->
+<section id="skills" data-aos="fade-up">
 <h2>Skills</h2>
 
 <div class="skills-grid">
@@ -50,30 +52,46 @@
 
 </section>
 
-
+<!-- Projects -->
 <section id="projects" data-aos="zoom-in">
 <h2>Projects</h2>
 
+<!-- E-commerce -->
 <div class="project">
-<h3>E-Commerce Website</h3>
-<p>Fully responsive shopping website using HTML, CSS, JS</p>
+<img src="ecommerce.png" class="project-img">
 
-<a href="https://your-ecommerce-link.com" target="_blank" class="project-btn">🔗 Live</a>
-<a href="https://github.com/your-repo" target="_blank" class="project-btn">💻 Code</a>
+<h3>🛒 E-Commerce Website</h3>
+<p>Fully responsive shopping website with modern UI</p>
+
+<a href="https://harshverma3105006-ux.github.io/ecommerce-project/" 
+target="_blank" 
+class="project-btn">🔗 Live Demo</a>
+
+<a href="https://github.com/harshverma3105006-ux/ecommerce-project" 
+target="_blank" 
+class="project-btn">💻 Source Code</a>
 </div>
 
+<!-- Bootstrap -->
 <div class="project">
-<h3>Bootstrap Website</h3>
-<p>Modern UI website built using Bootstrap framework</p>
+<img src="bootstrap.png" class="project-img">
 
-<a href="https://your-bootstrap-link.com" target="_blank" class="project-btn">🔗 Live</a>
-<a href="https://github.com/your-repo" target="_blank" class="project-btn">💻 Code</a>
+<h3>🌐 Bootstrap Website</h3>
+<p>Responsive website built using Bootstrap framework</p>
+
+<a href="https://harshverma3105006-ux.github.io/harshcoderBootstrap/" 
+target="_blank" 
+class="project-btn">🔗 Live Demo</a>
+
+<a href="https://github.com/harshverma3105006-ux/harshcoderBootstrap" 
+target="_blank" 
+class="project-btn">💻 Source Code</a>
 </div>
 
 </section>
 
-
-<section>
+<!-- Contact -->
+<section id="contact" data-aos="fade-up">
 <h2>Contact</h2>
 
 <div class="social-links">
@@ -82,18 +100,18 @@
 
 <a href="https://www.instagram.com/harshverma_456" target="_blank" class="social-btn">Instagram</a>
 
-<a href="https://www.linkedin.com/in/" target="_blank" class="social-btn">LinkedIn</a>
+<a href="https://www.linkedin.com/in/your-username" target="_blank" class="social-btn">LinkedIn</a>
 
 </div>
 
 </section>
 
+<!-- Scroll Top -->
+<button id="topBtn">↑</button>
 
-<script>
-document.getElementById("dark").onclick=()=>{
-document.body.classList.toggle("dark")
-}
-</script>
+<!-- Scripts -->
+<script src="script.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
 </body>
 </html>
