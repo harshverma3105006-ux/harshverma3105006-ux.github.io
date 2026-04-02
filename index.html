@@ -1,187 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Harsh Verma Portfolio</title>
+<title>Harsh Verma | Portfolio</title>
 
-<meta name="description"
-content="Harsh Verma UX Designer and Web Developer Portfolio">
+<meta name="description" content="Harsh Verma UX Designer and Web Developer Portfolio">
 
 <link rel="stylesheet" href="style.css">
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
 <header>
-
 <img src="profile.jpg.jpeg" class="profile">
 
 <h1>Harsh Verma</h1>
+<p>UX Designer & Web Developer</p>
 
-<p>UX Designer & Developer</p>
-
-<button class="btn">
-
-Hire Me
-
-</button>
+<button class="btn">Hire Me</button>
+<button id="dark" class="btn">🌙 Dark Mode</button>
 
 <br>
 
-<button id="dark">
-
-🌙 Dark Mode
-
-</button>
-
-<br>
-
-<a href="cv.pdf" download class="cv">
-
-Download CV
-
-</a>
-
+<a href="cv.pdf" download class="btn">Download CV</a>
 </header>
 
 
-
-<section id="about">
-
+<section>
 <h2>About Me</h2>
-
-<p>
-
-Hello! I am Harsh Verma.
-
-I create modern responsive websites.
-
-</p>
-
+<p>I design modern, user-friendly and responsive websites with smooth UX.</p>
 </section>
 
 
-
-<section id="skills">
-
+<section>
 <h2>Skills</h2>
 
 <div class="skills-grid">
-
 <div class="skill-card">HTML</div>
-
 <div class="skill-card">CSS</div>
-
 <div class="skill-card">JavaScript</div>
-
 <div class="skill-card">React</div>
-
 <div class="skill-card">UX Design</div>
-
 <div class="skill-card">Python</div>
-
 </div>
 
 </section>
 
 
+<section>
+<h2>Projects</h2>
 
-<section id="contact">
+<div class="project">Portfolio Website</div>
+<div class="project">AI Chat App</div>
+<div class="project">E-commerce UI</div>
 
-<h2>Contact Me</h2>
+</section>
 
-<p>
 
-Feel free to contact me
-
-</p>
-
+<section>
+<h2>Contact</h2>
 
 <div class="social-links">
 
-<a href="mailto:harshverma3105006@gmail.com"
+<a href="mailto:harshverma3105006@gmail.com" class="social-btn">Email</a>
 
-class="social-btn">
+<a href="https://www.instagram.com/harshverma_456" target="_blank" class="social-btn">Instagram</a>
 
-Email
-
-</a>
-
-
-<a href="https://www.instagram.com/harshverma_456"
-
-target="_blank"
-
-class="social-btn">
-
-Instagram
-
-</a>
-
-
-<a href="https://www.linkedin.com/Harsh Verma"
-
-target="_blank"
-
-class="social-btn">
-
-LinkedIn
-
-</a>
-
+<a href="https://www.linkedin.com/in/" target="_blank" class="social-btn">LinkedIn</a>
 
 </div>
 
 </section>
 
 
-
 <script>
-
-
-
-const btns=
-document.querySelectorAll(".btn,.social-btn");
-
-btns.forEach(btn=>{
-
-btn.addEventListener("mousemove",(e)=>{
-
-const rect=btn.getBoundingClientRect();
-
-const x=e.clientX-rect.left;
-
-const y=e.clientY-rect.top;
-
-btn.style.setProperty("--x",x+"px");
-
-btn.style.setProperty("--y",y+"px");
-
-});
-
-});
-
-
-
-
-document.getElementById("dark")
-
-.onclick=function(){
-
-document.body.classList.toggle("dark");
-
+document.getElementById("dark").onclick=()=>{
+document.body.classList.toggle("dark")
 }
-
-
-
 </script>
 
-
 </body>
-
 </html>
