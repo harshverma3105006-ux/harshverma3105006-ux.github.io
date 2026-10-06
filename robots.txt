@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Allow: /css/
+Allow: /js/
 
 Sitemap: https://harshverma3105006-ux.github.io/sitemap.xml
