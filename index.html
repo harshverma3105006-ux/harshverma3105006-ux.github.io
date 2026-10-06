@@ -56,7 +56,9 @@
         "@id": "https://harshverma3105006-ux.github.io/#person",
         "name": "Harsh Verma",
         "url": "https://harshverma3105006-ux.github.io/",
-        "mainEntityOfPage": "https://harshverma3105006-ux.github.io/",
+        "mainEntityOfPage": {
+            "@id": "https://harshverma3105006-ux.github.io/#webpage"
+        },
         "jobTitle": "AI/ML Engineer & Generative AI Developer",
         "description": "AI/ML Engineer and Generative AI Developer building intelligent systems, RAG applications, and machine learning solutions.",
         "image": "https://harshverma3105006-ux.github.io/profile.jpg.jpeg",
@@ -93,7 +95,29 @@
         "description": "Official portfolio of Harsh Verma, AI/ML Engineer and Generative AI Developer.",
         "author": {
             "@id": "https://harshverma3105006-ux.github.io/#person"
+        },
+        "publisher": {
+            "@id": "https://harshverma3105006-ux.github.io/#person"
         }
+    }
+    </script>
+
+    <!-- WebPage Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": "https://harshverma3105006-ux.github.io/#webpage",
+        "url": "https://harshverma3105006-ux.github.io/",
+        "name": "Harsh Verma | AI/ML Engineer & Generative AI Developer",
+        "description": "Harsh Verma is an AI/ML Engineer and Generative AI Developer building intelligent systems, RAG applications, and practical machine learning projects.",
+        "author": {
+            "@id": "https://harshverma3105006-ux.github.io/#person"
+        },
+        "isPartOf": {
+            "@id": "https://harshverma3105006-ux.github.io/#website"
+        },
+        "primaryImageOfPage": "https://harshverma3105006-ux.github.io/profile.jpg.jpeg"
     }
     </script>
 
@@ -438,17 +462,17 @@
 
                         <div class="project-links">
 
-                            <a href="#" class="project-link disabled">
+                            <span class="project-link disabled" aria-label="Case study not available">
                                 Case Study
-                            </a>
+                            </span>
 
-                            <a href="#" class="project-link disabled">
+                            <span class="project-link disabled" aria-label="GitHub link not available">
                                 GitHub
-                            </a>
+                            </span>
 
-                            <a href="#" class="project-link disabled">
+                            <span class="project-link disabled" aria-label="Live demo not available">
                                 Live Demo
-                            </a>
+                            </span>
 
                         </div>
 
@@ -484,9 +508,9 @@
                         <span>Automation</span>
                     </div>
 
-                    <a href="#" class="project-link">
+                    <span class="project-link" aria-label="Case study not available">
                         View Case Study →
-                    </a>
+                    </span>
 
                 </article>
 
@@ -517,9 +541,9 @@
                         <span>Security</span>
                     </div>
 
-                    <a href="#" class="project-link">
+                    <span class="project-link" aria-label="Case study not available">
                         View Case Study →
-                    </a>
+                    </span>
 
                 </article>
 
