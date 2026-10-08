@@ -1,6 +1,7 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
-<link rel="stylesheet" href="../css/style.css">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,7 +18,8 @@
     <meta name="googlebot" content="index, follow">
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://harshverma3105006-ux.github.io/blog/ragmind-ai-first-rag-application.html">
+    <link rel="canonical"
+        href="https://harshverma3105006-ux.github.io/blog/ragmind-ai-first-rag-application.html">
 
     <!-- Theme -->
     <meta name="theme-color" content="#0a0a0a">
@@ -27,7 +29,8 @@
     <meta property="og:title" content="How I Built My First RAG Application — Harsh Verma">
     <meta property="og:description"
         content="Harsh Verma shares his journey building RAGMind-AI, a Retrieval-Augmented Generation system. Learn about RAG architecture, technology choices, and lessons from building AI applications.">
-    <meta property="og:url" content="https://harshverma3105006-ux.github.io/blog/ragmind-ai-first-rag-application.html">
+    <meta property="og:url"
+        content="https://harshverma3105006-ux.github.io/blog/ragmind-ai-first-rag-application.html">
     <meta property="og:site_name" content="Harsh Verma">
     <meta property="og:image"
         content="https://harshverma3105006-ux.github.io/profile.jpg.jpeg">
@@ -55,6 +58,7 @@
         "description": "Harsh Verma shares his journey building RAGMind-AI, a Retrieval-Augmented Generation system. Learn about RAG architecture, technology choices, and lessons from building AI applications.",
         "url": "https://harshverma3105006-ux.github.io/blog/ragmind-ai-first-rag-application.html",
         "mainEntityOfPage": {
+            "@type": "WebPage",
             "@id": "https://harshverma3105006-ux.github.io/blog/ragmind-ai-first-rag-application.html"
         },
         "author": {
@@ -87,7 +91,7 @@
             overflow-x: hidden;
         }
 
-        body::selection {
+        ::selection {
             background: #f4f4f4;
             color: #080808;
         }
@@ -216,7 +220,8 @@
             font-weight: 600;
         }
 
-        ul, ol {
+        ul,
+        ol {
             margin-left: 30px;
             margin-bottom: 25px;
         }
@@ -447,6 +452,7 @@
 
             .author-links {
                 justify-content: center;
+                flex-wrap: wrap;
             }
 
             .tech-stack {
@@ -464,7 +470,10 @@
             <a href="https://harshverma3105006-ux.github.io/" class="logo">
                 HARSH<span>.</span>
             </a>
-            <a href="https://harshverma3105006-ux.github.io/#projects" class="nav-link">Back to Portfolio</a>
+
+            <a href="https://harshverma3105006-ux.github.io/#projects" class="nav-link">
+                Back to Portfolio
+            </a>
         </div>
     </header>
 
@@ -476,6 +485,7 @@
 
                 <header class="article-header">
                     <h1>How I Built My First RAG Application — Lessons from RAGMind-AI</h1>
+
                     <div class="article-meta">
                         <span>By Harsh Verma</span>
                         <span>•</span>
@@ -487,91 +497,146 @@
 
                 <section>
                     <h2>Introduction</h2>
+
                     <p>
-                        Building my first Retrieval-Augmented Generation (RAG) application has been one of the most challenging and rewarding projects I've worked on. RAGMind-AI is still very much a work in progress, but I wanted to share what I've learned so far—not the polished "success story," but the real journey of understanding RAG systems, making technology choices, and learning what works and what doesn't.
+                        Building my first Retrieval-Augmented Generation (RAG) application has been one of the most
+                        challenging and rewarding projects I've worked on. RAGMind-AI is still very much a work in
+                        progress, but I wanted to share what I've learned so far—not the polished "success story," but
+                        the real journey of understanding RAG systems, making technology choices, and learning what
+                        works and what doesn't.
                     </p>
+
                     <p>
-                        This article is for anyone curious about how RAG systems work, what technologies power them, and what it takes to build one from scratch.
+                        This article is for anyone curious about how RAG systems work, what technologies power them,
+                        and what it takes to build one from scratch.
                     </p>
                 </section>
 
                 <section>
                     <h2>What is RAGMind AI?</h2>
+
                     <p>
-                        RAGMind-AI is an AI-powered Retrieval-Augmented Generation system that allows users to interact with documents using semantic search, embeddings, vector databases, and LLM-powered responses.
+                        RAGMind-AI is an AI-powered Retrieval-Augmented Generation system that allows users to interact
+                        with documents using semantic search, embeddings, vector databases, and LLM-powered responses.
                     </p>
+
                     <p>
-                        In simpler terms: imagine uploading a PDF or document, and then being able to ask questions about it in natural language. Instead of just keyword searching for matching text, the system <strong>understands the meaning</strong> of your question and the content of the document, then retrieves the most relevant information and generates an intelligent response.
+                        In simpler terms: imagine uploading a PDF or document, and then being able to ask questions
+                        about it in natural language. Instead of just keyword searching for matching text, the system
+                        <strong>understands the meaning</strong> of your question and the content of the document,
+                        then retrieves the most relevant information and generates an intelligent response.
                     </p>
+
                     <p>
-                        <strong>Current status:</strong> The project is in active development. The core document processing and embedding pipeline are functional, but the backend API and database integration are still being built out.
+                        <strong>Current status:</strong> The project is in active development. The core document
+                        processing and embedding pipeline are functional, but the backend API and database integration
+                        are still being built out.
                     </p>
                 </section>
 
                 <section>
                     <h2>How the RAG System Works</h2>
+
                     <p>
-                        RAG stands for Retrieval-Augmented Generation. The core idea is simple: instead of relying solely on a large language model's training data, you combine a retrieval system (semantic search over your documents) with generation (creating an answer based on retrieved content).
+                        RAG stands for Retrieval-Augmented Generation. The core idea is simple: instead of relying
+                        solely on a large language model's training data, you combine a retrieval system (semantic
+                        search over your documents) with generation (creating an answer based on retrieved content).
                     </p>
+
                     <p>
-                        Here's why this matters: Large language models like Gemini can hallucinate—they generate plausible-sounding but incorrect information. RAG solves this by grounding the LLM's response in actual document content. The system first finds the most relevant passages, then asks the LLM to answer based only on those passages.
+                        Here's why this matters: Large language models like Gemini can hallucinate—they generate
+                        plausible-sounding but incorrect information. RAG helps ground an LLM's response in retrieved
+                        document content by providing relevant passages as context.
                     </p>
+
                     <p>
                         The flow is:
                     </p>
+
                     <ol>
                         <li><strong>User uploads a document</strong> (PDF, image, text)</li>
                         <li><strong>System extracts text</strong> (using OCR if needed)</li>
                         <li><strong>Document is split into chunks</strong> (manageable pieces)</li>
                         <li><strong>Each chunk is converted to embeddings</strong> (numerical vectors)</li>
-                        <li><strong>Embeddings are stored in a vector database</strong> (for fast lookup)</li>
+                        <li><strong>Embeddings are stored in a vector database</strong> (for lookup)</li>
                         <li><strong>User asks a question</strong></li>
                         <li><strong>Question is converted to embeddings</strong></li>
-                        <li><strong>System finds the most similar document chunks</strong> (semantic search)</li>
-                        <li><strong>LLM generates a response</strong> based on those chunks</li>
+                        <li><strong>System finds relevant document chunks</strong> (semantic search)</li>
+                        <li><strong>LLM generates a response</strong> based on the retrieved context</li>
                     </ol>
                 </section>
 
                 <section>
                     <h2>System Architecture</h2>
+
                     <p>
                         Here's the architecture I've designed for RAGMind-AI:
                     </p>
+
                     <div class="architecture-flow">
                         <code>
 PDF / Document<br>
-    ↓<br>
+↓<br>
 OCR + Loader<br>
-    ↓<br>
+↓<br>
 Chunking<br>
-    ↓<br>
+↓<br>
 Embeddings<br>
-    ↓<br>
+↓<br>
 Vector Database<br>
-    ↓<br>
+↓<br>
 Retrieval<br>
-    ↓<br>
+↓<br>
 LLM Response
                         </code>
                     </div>
+
                     <p>
                         Each stage has a specific purpose:
                     </p>
+
                     <ul>
-                        <li><strong>OCR + Loader:</strong> Extract text from PDFs and images. Some documents are image-based, so OCR is essential for making them searchable.</li>
-                        <li><strong>Chunking:</strong> Split large documents into smaller pieces. This is crucial—chunks that are too large miss specific information; chunks that are too small lose context.</li>
-                        <li><strong>Embeddings:</strong> Convert text chunks into numerical vectors that capture semantic meaning. This is what makes semantic search possible.</li>
-                        <li><strong>Vector Database:</strong> Store embeddings for fast similarity search. When a user asks a question, we find the closest embeddings to the question embedding.</li>
-                        <li><strong>Retrieval:</strong> Pull the most relevant chunks from the vector database based on semantic similarity.</li>
-                        <li><strong>LLM Response:</strong> Pass the retrieved chunks plus the user's question to an LLM, which generates a grounded, informed response.</li>
+                        <li>
+                            <strong>OCR + Loader:</strong>
+                            Extract text from PDFs and images. Some documents are image-based, so OCR can make
+                            them searchable.
+                        </li>
+
+                        <li>
+                            <strong>Chunking:</strong>
+                            Split large documents into smaller pieces. This helps balance context and retrieval
+                            relevance.
+                        </li>
+
+                        <li>
+                            <strong>Embeddings:</strong>
+                            Convert text chunks into numerical vectors that capture semantic relationships.
+                        </li>
+
+                        <li>
+                            <strong>Vector Database:</strong>
+                            Store embeddings for similarity search.
+                        </li>
+
+                        <li>
+                            <strong>Retrieval:</strong>
+                            Pull relevant chunks from the vector store based on semantic similarity.
+                        </li>
+
+                        <li>
+                            <strong>LLM Response:</strong>
+                            Pass retrieved context and the user's question to an LLM to generate a response.
+                        </li>
                     </ul>
                 </section>
 
                 <section>
                     <h2>Technology Stack</h2>
+
                     <p>
                         Here's what powers RAGMind-AI:
                     </p>
+
                     <div class="tech-stack">
                         <div class="tech-tag">Python</div>
                         <div class="tech-tag">FastAPI</div>
@@ -582,15 +647,44 @@ LLM Response
                         <div class="tech-tag">Gemini</div>
                         <div class="tech-tag">OCR</div>
                     </div>
+
                     <h3>Why these technologies?</h3>
+
                     <ul>
-                        <li><strong>Python:</strong> Industry standard for AI/ML. Rich ecosystem for data processing and LLMs.</li>
-                        <li><strong>FastAPI:</strong> Modern, fast web framework for building APIs. Excellent for real-time AI applications.</li>
-                        <li><strong>BGE Embeddings:</strong> A state-of-the-art open-source embedding model. Balances quality and performance.</li>
-                        <li><strong>ChromaDB:</strong> A vector database optimized for embeddings. Easy to integrate and production-ready.</li>
-                        <li><strong>FAISS:</strong> Facebook's vector similarity search library. Enables fast nearest-neighbor search in high-dimensional spaces.</li>
-                        <li><strong>Gemini:</strong> Google's advanced LLM for generating intelligent, grounded responses.</li>
-                        <li><strong>OCR:</strong> For extracting text from scanned PDFs and images.</li>
+                        <li>
+                            <strong>Python:</strong>
+                            Industry-standard language for many AI/ML workflows with a broad ecosystem.
+                        </li>
+
+                        <li>
+                            <strong>FastAPI:</strong>
+                            Web framework for building APIs and backend services.
+                        </li>
+
+                        <li>
+                            <strong>BGE Embeddings:</strong>
+                            An open-source embedding model family used for text representation and semantic retrieval.
+                        </li>
+
+                        <li>
+                            <strong>ChromaDB:</strong>
+                            A vector database/tool designed to work with embeddings and similarity search.
+                        </li>
+
+                        <li>
+                            <strong>FAISS:</strong>
+                            A library for efficient similarity search over dense vectors.
+                        </li>
+
+                        <li>
+                            <strong>Gemini:</strong>
+                            Google's generative AI model family used for response generation.
+                        </li>
+
+                        <li>
+                            <strong>OCR:</strong>
+                            Used for extracting text from scanned documents and images.
+                        </li>
                     </ul>
                 </section>
 
@@ -598,92 +692,174 @@ LLM Response
                     <h2>What is Complete vs. What is In Development</h2>
 
                     <div class="status-box complete">
-                        <strong>✅ Complete:</strong> Document processing pipeline, OCR integration, text chunking, embedding generation with BGE, vector storage concepts, system architecture design.
+                        <strong>✅ Complete:</strong>
+                        Document processing pipeline, OCR integration, text chunking, embedding generation with BGE,
+                        vector storage concepts, system architecture design.
                     </div>
 
                     <div class="status-box in-progress">
-                        <strong>🚧 In Progress:</strong> FastAPI backend implementation, full database integration with ChromaDB and FAISS, query processing, LLM response generation, end-to-end testing.
+                        <strong>🚧 In Progress:</strong>
+                        FastAPI backend implementation, full database integration with ChromaDB and FAISS,
+                        query processing, LLM response generation, end-to-end testing.
                     </div>
 
                     <div class="status-box future">
-                        <strong>❌ Future Work:</strong> Frontend user interface, deployment and hosting, performance optimization, user testing, production-level security, scalability improvements.
+                        <strong>❌ Future Work:</strong>
+                        Frontend user interface, deployment and hosting, performance optimization, user testing,
+                        production-level security, scalability improvements.
                     </div>
 
                     <p>
-                        <strong>Important note:</strong> This project is not ready for production use. The backend is still being built, and until that's complete and tested, there's no live API or working demo.
+                        <strong>Important note:</strong>
+                        This project is not ready for production use. The backend is still being built, and until
+                        that's complete and tested, there's no live API or working demo.
                     </p>
                 </section>
 
                 <section>
                     <h2>What I Am Learning From This Project</h2>
+
                     <p>
-                        Even though RAGMind-AI isn't finished, it's already teaching me valuable lessons about building AI systems:
+                        Even though RAGMind-AI isn't finished, it's already teaching me valuable lessons about
+                        building AI systems:
                     </p>
+
                     <h3>1. Embedding Quality Matters More Than I Expected</h3>
+
                     <p>
-                        The embeddings are the foundation of the entire RAG system. A mediocre embedding model will retrieve irrelevant chunks, and no amount of LLM prompt engineering can fix that. Choosing the right embedding model (like BGE) is critical.
+                        The embeddings are an important part of the RAG system. Retrieval quality depends heavily
+                        on how well the embedding model represents the relationship between queries and documents.
                     </p>
+
                     <h3>2. Chunking is an Art, Not a Science</h3>
+
                     <p>
-                        The size and overlap of document chunks significantly affect retrieval quality. Too small, and you lose context. Too large, and you retrieve irrelevant information. I'm still experimenting with what works best for different document types.
+                        The size and overlap of document chunks can affect retrieval quality. Too small, and you
+                        may lose context. Too large, and you may retrieve unnecessary information. I'm still
+                        experimenting with what works best for different document types.
                     </p>
+
                     <h3>3. Vector Databases Simplify a Complex Problem</h3>
+
                     <p>
-                        Before using ChromaDB and FAISS, I underestimated how complex it would be to manage embeddings at scale. Having a dedicated vector database that handles storage, indexing, and similarity search is invaluable.
+                        Working with ChromaDB and FAISS has helped me understand how vector storage, indexing,
+                        and similarity search fit into a RAG architecture.
                     </p>
+
                     <h3>4. RAG is Not a Silver Bullet</h3>
+
                     <p>
-                        RAG improves LLM reliability, but it doesn't solve every problem. The LLM still needs good retrieved context, clear prompts, and proper error handling. Retrieval quality directly impacts response quality.
+                        RAG can improve how an LLM uses external information, but it doesn't solve every problem.
+                        Retrieval quality, context selection, prompts, and error handling still matter.
                     </p>
+
                     <h3>5. Building Backend Systems is Hard</h3>
+
                     <p>
-                        The architectural design was the easy part. Implementing a robust, scalable backend with proper API design, error handling, and database management is where the real complexity lies. This is why the project is still in development.
+                        The architectural design was the easy part. Implementing a robust backend with proper API
+                        design, error handling, and database management is where the real complexity lies. This is
+                        why the project is still in development.
                     </p>
                 </section>
 
                 <section>
                     <h2>Next Steps</h2>
+
                     <p>
                         The immediate priorities for RAGMind-AI are:
                     </p>
+
                     <ol>
-                        <li><strong>Complete the FastAPI backend:</strong> Build the endpoints for document upload, query processing, and response retrieval.</li>
-                        <li><strong>Integrate the full database layer:</strong> Connect ChromaDB and FAISS for persistent storage and efficient similarity search.</li>
-                        <li><strong>Test end-to-end:</strong> Ensure the full pipeline works from document ingestion to LLM response.</li>
-                        <li><strong>Optimize performance:</strong> Profile the system to identify bottlenecks and improve response time.</li>
-                        <li><strong>Build a frontend:</strong> Create a user interface so people can actually interact with the system.</li>
+                        <li>
+                            <strong>Complete the FastAPI backend:</strong>
+                            Build the endpoints for document upload, query processing, and response retrieval.
+                        </li>
+
+                        <li>
+                            <strong>Integrate the database layer:</strong>
+                            Connect the selected vector-storage components for efficient similarity search.
+                        </li>
+
+                        <li>
+                            <strong>Test end-to-end:</strong>
+                            Ensure the pipeline works from document ingestion to LLM response.
+                        </li>
+
+                        <li>
+                            <strong>Optimize performance:</strong>
+                            Profile the system to identify bottlenecks and improve response time.
+                        </li>
+
+                        <li>
+                            <strong>Build a frontend:</strong>
+                            Create a user interface so people can interact with the system.
+                        </li>
                     </ol>
                 </section>
 
                 <section class="cta-box">
+
                     <h3>Interested in RAGMind-AI?</h3>
+
                     <p>
-                        The project is still in development, but I'd love to hear your thoughts, suggestions, or questions about RAG systems in general. Reach out through my portfolio or connect on LinkedIn.
+                        The project is still in development, but I'd love to hear your thoughts, suggestions,
+                        or questions about RAG systems in general. Reach out through my portfolio or connect
+                        on LinkedIn.
                     </p>
-                    <a href="https://harshverma3105006-ux.github.io/#contact" class="btn">Contact Me</a>
+
+                    <a href="https://harshverma3105006-ux.github.io/#contact" class="btn">
+                        Contact Me
+                    </a>
+
                 </section>
 
             </article>
 
             <section class="author-section">
+
                 <div class="author-image">
                     <img src="../profile.jpg.jpeg" alt="Harsh Verma">
                 </div>
+
                 <div class="author-info">
+
                     <h3>About Harsh Verma</h3>
+
                     <p>
-                        Harsh Verma is an AI/ML Engineer and Generative AI Developer focused on building practical intelligent systems and RAG applications. He's a Computer Science student specializing in Artificial Intelligence and Machine Learning, passionate about exploring how AI can solve real-world problems.
+                        Harsh Verma is an AI/ML Engineer and Generative AI Developer focused on building practical
+                        intelligent systems and RAG applications. He's a Computer Science student specializing in
+                        Artificial Intelligence and Machine Learning, passionate about exploring how AI can solve
+                        real-world problems.
                     </p>
+
                     <div class="author-links">
-                        <a href="https://github.com/harshverma3105006-ux" target="_blank" rel="noopener noreferrer">GitHub</a>
-                        <a href="https://www.linkedin.com/in/harsh-verma-4930ab330/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                        <a href="mailto:harsh2304311530017@gmail.com">Email</a>
+
+                        <a href="https://github.com/harshverma3105006-ux"
+                            target="_blank"
+                            rel="noopener noreferrer">
+                            GitHub
+                        </a>
+
+                        <a href="https://www.linkedin.com/in/harsh-verma-4930ab330/"
+                            target="_blank"
+                            rel="noopener noreferrer">
+                            LinkedIn
+                        </a>
+
+                        <a href="mailto:harsh2304311530017@gmail.com">
+                            Email
+                        </a>
+
                     </div>
+
                 </div>
+
             </section>
 
             <div class="back-to-portfolio">
-                <a href="https://harshverma3105006-ux.github.io/">← Back to Portfolio</a>
+                <a href="https://harshverma3105006-ux.github.io/">
+                    ← Back to Portfolio
+                </a>
             </div>
 
         </div>
@@ -697,3 +873,4 @@ LLM Response
 </body>
 
 </html>
+```
