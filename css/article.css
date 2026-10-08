@@ -1,0 +1,207 @@
+﻿/* RAGMind Article Only */
+
+.article-page {
+    margin: 0;
+    background: #080808;
+    color: #f5f5f5;
+    min-height: 100vh;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.article-page header {
+    width: 100%;
+    background: #080808;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.article-page .header-content {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 22px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.article-page .logo {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+}
+
+.article-page .logo span {
+    color: #8b5cf6;
+}
+
+.article-page .nav-link {
+    color: #aaa;
+    text-decoration: none;
+    font-size: .9rem;
+}
+
+.article-page .nav-link:hover {
+    color: #fff;
+}
+
+.article-page main {
+    width: 100%;
+    padding: 90px 20px 70px;
+    box-sizing: border-box;
+}
+
+.article-page .article-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.article-page article {
+    width: 100%;
+}
+
+.article-page h1 {
+    margin: 0 0 25px;
+    color: #fff;
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    line-height: 1.08;
+    letter-spacing: -.04em;
+}
+
+.article-page h2 {
+    margin: 55px 0 18px;
+    color: #fff;
+    font-size: 1.65rem;
+    line-height: 1.25;
+}
+
+.article-page h3 {
+    margin: 30px 0 12px;
+    color: #fff;
+    font-size: 1.15rem;
+}
+
+.article-page p {
+    margin: 0 0 20px;
+    color: #b9b9b9;
+    font-size: 1.02rem;
+    line-height: 1.85;
+}
+
+.article-page strong {
+    color: #fff;
+}
+
+.article-page a {
+    color: #a78bfa;
+}
+
+.article-page ul,
+.article-page ol {
+    margin: 0 0 25px;
+    padding-left: 25px;
+    color: #b9b9b9;
+}
+
+.article-page li {
+    margin-bottom: 10px;
+    line-height: 1.7;
+}
+
+.article-page .status-box {
+    margin: 30px 0;
+    padding: 22px 25px;
+    border: 1px solid rgba(139,92,246,.3);
+    border-radius: 14px;
+    background: rgba(139,92,246,.07);
+}
+
+.article-page .architecture-flow {
+    margin: 30px 0;
+    padding: 25px;
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 14px;
+    background: #101010;
+    overflow-x: auto;
+}
+
+.article-page .architecture-flow p {
+    margin: 0;
+    color: #ddd;
+    font-family: Consolas, monospace;
+    font-size: .9rem;
+    line-height: 2;
+}
+
+.article-page .tech-stack {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+    margin: 25px 0 30px;
+}
+
+.article-page .tech-stack > * {
+    padding: 14px 16px;
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 10px;
+    background: #101010;
+    color: #ddd;
+}
+
+.article-page .cta {
+    margin: 55px 0 35px;
+    padding: 30px;
+    border-radius: 16px;
+    background: rgba(139,92,246,.08);
+    border: 1px solid rgba(139,92,246,.22);
+}
+
+.article-page .author-section {
+    margin-top: 55px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255,255,255,.08);
+}
+
+.article-page .author-links {
+    display: flex;
+    gap: 18px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.article-page footer {
+    padding: 35px 20px;
+    text-align: center;
+    color: #666;
+    border-top: 1px solid rgba(255,255,255,.07);
+}
+
+.article-page footer p {
+    margin: 0;
+    color: #666;
+    font-size: .85rem;
+}
+
+@media (max-width: 700px) {
+    .article-page .header-content {
+        padding: 18px 20px;
+    }
+
+    .article-page main {
+        padding: 60px 18px 50px;
+    }
+
+    .article-page h1 {
+        font-size: 2.3rem;
+    }
+
+    .article-page p {
+        font-size: .98rem;
+    }
+
+    .article-page .tech-stack {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
