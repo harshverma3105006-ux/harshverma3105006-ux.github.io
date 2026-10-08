@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary SEO -->
+    <title>How I Built My First RAG Application — Harsh Verma</title>
+
+    <meta name="description"
+        content="Harsh Verma shares his journey building RAGMind-AI, a Retrieval-Augmented Generation system. Learn about RAG architecture, technology choices, and lessons from building AI applications.">
+
+    <meta name="author" content="Harsh Verma">
+
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://harshverma3105006-ux.github.io/blog/ragmind-ai-first-rag-application.html">
+
+    <!-- Theme -->
+    <meta name="theme-color" content="#0a0a0a">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="How I Built My First RAG Application — Harsh Verma">
+    <meta property="og:description"
+        content="Harsh Verma shares his journey building RAGMind-AI, a Retrieval-Augmented Generation system. Learn about RAG architecture, technology choices, and lessons from building AI applications.">
+    <meta property="og:url" content="https://harshverma3105006-ux.github.io/blog/ragmind-ai-first-rag-application.html">
+    <meta property="og:site_name" content="Harsh Verma">
+    <meta property="og:image"
+        content="https://harshverma3105006-ux.github.io/profile.jpg.jpeg">
+    <meta property="og:image:alt" content="Harsh Verma - AI/ML Engineer">
+
+    <!-- Article OG Tags -->
+    <meta property="article:author" content="Harsh Verma">
+    <meta property="article:published_time" content="2026-10-08">
+    <meta property="article:modified_time" content="2026-10-08">
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How I Built My First RAG Application — Harsh Verma">
+    <meta name="twitter:description"
+        content="Harsh Verma shares his journey building RAGMind-AI, a Retrieval-Augmented Generation system. Learn about RAG architecture, technology choices, and lessons from building AI applications.">
+    <meta name="twitter:image"
+        content="https://harshverma3105006-ux.github.io/profile.jpg.jpeg">
+
+    <!-- Article Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "How I Built My First RAG Application — Lessons from RAGMind-AI",
+        "description": "Harsh Verma shares his journey building RAGMind-AI, a Retrieval-Augmented Generation system. Learn about RAG architecture, technology choices, and lessons from building AI applications.",
+        "url": "https://harshverma3105006-ux.github.io/blog/ragmind-ai-first-rag-application.html",
+        "mainEntityOfPage": {
+            "@id": "https://harshverma3105006-ux.github.io/blog/ragmind-ai-first-rag-application.html"
+        },
+        "author": {
+            "@type": "Person",
+            "@id": "https://harshverma3105006-ux.github.io/#person",
+            "name": "Harsh Verma"
+        },
+        "image": "https://harshverma3105006-ux.github.io/profile.jpg.jpeg",
+        "datePublished": "2026-10-08",
+        "dateModified": "2026-10-08"
+    }
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #080808;
+            color: #f4f4f4;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        body::selection {
+            background: #f4f4f4;
+            color: #080808;
+        }
+
+        a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
+
+        a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(8, 8, 8, 0.95);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 20px 0;
+        }
+
+        .header-content {
+            max-width: 1180px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+        }
+
+        .logo span {
+            opacity: 0.45;
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin-left: 30px;
+            font-size: 0.88rem;
+            color: #969696;
+            transition: 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #f4f4f4;
+        }
+
+        main {
+            margin-top: 100px;
+            padding-top: 60px;
+        }
+
+        .article-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        article {
+            background: transparent;
+        }
+
+        .article-header {
+            margin-bottom: 60px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 40px;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            line-height: 1.2;
+            letter-spacing: -0.03em;
+            margin-bottom: 20px;
+            font-weight: 900;
+        }
+
+        .article-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            color: #969696;
+            font-size: 0.9rem;
+            margin-top: 20px;
+        }
+
+        .article-meta span {
+            display: inline-block;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 50px;
+            margin-bottom: 25px;
+            letter-spacing: -0.02em;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            font-weight: 600;
+            color: #f4f4f4;
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: #d4d4d4;
+        }
+
+        p strong {
+            color: #f4f4f4;
+            font-weight: 600;
+        }
+
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 25px;
+        }
+
+        li {
+            margin-bottom: 12px;
+            color: #d4d4d4;
+        }
+
+        .architecture-flow {
+            background: #101010;
+            border: 1px solid #292929;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 30px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            overflow-x: auto;
+        }
+
+        .architecture-flow code {
+            color: #00ff88;
+        }
+
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 12px;
+            margin: 25px 0;
+        }
+
+        .tech-tag {
+            background: #151515;
+            border: 1px solid #292929;
+            border-radius: 6px;
+            padding: 10px 15px;
+            font-size: 0.85rem;
+            color: #969696;
+            text-align: center;
+            transition: 0.3s ease;
+        }
+
+        .tech-tag:hover {
+            background: #1a1a1a;
+            border-color: #3a3a3a;
+            color: #f4f4f4;
+        }
+
+        .status-box {
+            background: #151515;
+            border-left: 3px solid #00ff88;
+            border-radius: 6px;
+            padding: 20px;
+            margin: 25px 0;
+            color: #d4d4d4;
+        }
+
+        .status-box strong {
+            color: #00ff88;
+        }
+
+        .complete {
+            border-left-color: #00ff88;
+        }
+
+        .complete strong {
+            color: #00ff88;
+        }
+
+        .in-progress {
+            border-left-color: #ffaa00;
+        }
+
+        .in-progress strong {
+            color: #ffaa00;
+        }
+
+        .future {
+            border-left-color: #666666;
+        }
+
+        .future strong {
+            color: #999999;
+        }
+
+        .cta-box {
+            background: #101010;
+            border: 1px solid #292929;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .cta-box h3 {
+            margin-top: 0;
+        }
+
+        .cta-box p {
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #ffffff;
+            color: #080808;
+            padding: 12px 30px;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: 0.3s ease;
+            margin: 0 10px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+            text-decoration: none;
+        }
+
+        .author-section {
+            background: #101010;
+            border: 1px solid #292929;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 50px 0 30px;
+            display: flex;
+            gap: 25px;
+            align-items: flex-start;
+        }
+
+        .author-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 8px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h3 {
+            margin-top: 0;
+            font-size: 1.2rem;
+        }
+
+        .author-info p {
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+        }
+
+        .author-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .author-links a {
+            display: inline-block;
+            padding: 8px 15px;
+            background: #151515;
+            border: 1px solid #292929;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: 0.3s ease;
+        }
+
+        .author-links a:hover {
+            background: #1a1a1a;
+            border-color: #3a3a3a;
+        }
+
+        footer {
+            background: #0a0a0a;
+            border-top: 1px solid #292929;
+            padding: 40px 20px;
+            margin-top: 60px;
+            text-align: center;
+            color: #969696;
+            font-size: 0.9rem;
+        }
+
+        .back-to-portfolio {
+            text-align: center;
+            margin: 40px 0;
+            padding: 20px;
+        }
+
+        .back-to-portfolio a {
+            display: inline-block;
+            padding: 12px 25px;
+            background: #151515;
+            border: 1px solid #292929;
+            border-radius: 6px;
+            transition: 0.3s ease;
+        }
+
+        .back-to-portfolio a:hover {
+            background: #1a1a1a;
+            border-color: #3a3a3a;
+        }
+
+        @media (max-width: 768px) {
+            .article-container {
+                padding: 0 25px;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            h2 {
+                font-size: 1.4rem;
+            }
+
+            .author-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .author-image {
+                margin: 0 auto;
+            }
+
+            .author-links {
+                justify-content: center;
+            }
+
+            .tech-stack {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+        <div class="header-content">
+            <a href="https://harshverma3105006-ux.github.io/" class="logo">
+                HARSH<span>.</span>
+            </a>
+            <a href="https://harshverma3105006-ux.github.io/#projects" class="nav-link">Back to Portfolio</a>
+        </div>
+    </header>
+
+    <main>
+
+        <div class="article-container">
+
+            <article>
+
+                <header class="article-header">
+                    <h1>How I Built My First RAG Application — Lessons from RAGMind-AI</h1>
+                    <div class="article-meta">
+                        <span>By Harsh Verma</span>
+                        <span>•</span>
+                        <span>October 2026</span>
+                        <span>•</span>
+                        <span>Generative AI</span>
+                    </div>
+                </header>
+
+                <section>
+                    <h2>Introduction</h2>
+                    <p>
+                        Building my first Retrieval-Augmented Generation (RAG) application has been one of the most challenging and rewarding projects I've worked on. RAGMind-AI is still very much a work in progress, but I wanted to share what I've learned so far—not the polished "success story," but the real journey of understanding RAG systems, making technology choices, and learning what works and what doesn't.
+                    </p>
+                    <p>
+                        This article is for anyone curious about how RAG systems work, what technologies power them, and what it takes to build one from scratch.
+                    </p>
+                </section>
+
+                <section>
+                    <h2>What is RAGMind AI?</h2>
+                    <p>
+                        RAGMind-AI is an AI-powered Retrieval-Augmented Generation system that allows users to interact with documents using semantic search, embeddings, vector databases, and LLM-powered responses.
+                    </p>
+                    <p>
+                        In simpler terms: imagine uploading a PDF or document, and then being able to ask questions about it in natural language. Instead of just keyword searching for matching text, the system <strong>understands the meaning</strong> of your question and the content of the document, then retrieves the most relevant information and generates an intelligent response.
+                    </p>
+                    <p>
+                        <strong>Current status:</strong> The project is in active development. The core document processing and embedding pipeline are functional, but the backend API and database integration are still being built out.
+                    </p>
+                </section>
+
+                <section>
+                    <h2>How the RAG System Works</h2>
+                    <p>
+                        RAG stands for Retrieval-Augmented Generation. The core idea is simple: instead of relying solely on a large language model's training data, you combine a retrieval system (semantic search over your documents) with generation (creating an answer based on retrieved content).
+                    </p>
+                    <p>
+                        Here's why this matters: Large language models like Gemini can hallucinate—they generate plausible-sounding but incorrect information. RAG solves this by grounding the LLM's response in actual document content. The system first finds the most relevant passages, then asks the LLM to answer based only on those passages.
+                    </p>
+                    <p>
+                        The flow is:
+                    </p>
+                    <ol>
+                        <li><strong>User uploads a document</strong> (PDF, image, text)</li>
+                        <li><strong>System extracts text</strong> (using OCR if needed)</li>
+                        <li><strong>Document is split into chunks</strong> (manageable pieces)</li>
+                        <li><strong>Each chunk is converted to embeddings</strong> (numerical vectors)</li>
+                        <li><strong>Embeddings are stored in a vector database</strong> (for fast lookup)</li>
+                        <li><strong>User asks a question</strong></li>
+                        <li><strong>Question is converted to embeddings</strong></li>
+                        <li><strong>System finds the most similar document chunks</strong> (semantic search)</li>
+                        <li><strong>LLM generates a response</strong> based on those chunks</li>
+                    </ol>
+                </section>
+
+                <section>
+                    <h2>System Architecture</h2>
+                    <p>
+                        Here's the architecture I've designed for RAGMind-AI:
+                    </p>
+                    <div class="architecture-flow">
+                        <code>
+PDF / Document<br>
+    ↓<br>
+OCR + Loader<br>
+    ↓<br>
+Chunking<br>
+    ↓<br>
+Embeddings<br>
+    ↓<br>
+Vector Database<br>
+    ↓<br>
+Retrieval<br>
+    ↓<br>
+LLM Response
+                        </code>
+                    </div>
+                    <p>
+                        Each stage has a specific purpose:
+                    </p>
+                    <ul>
+                        <li><strong>OCR + Loader:</strong> Extract text from PDFs and images. Some documents are image-based, so OCR is essential for making them searchable.</li>
+                        <li><strong>Chunking:</strong> Split large documents into smaller pieces. This is crucial—chunks that are too large miss specific information; chunks that are too small lose context.</li>
+                        <li><strong>Embeddings:</strong> Convert text chunks into numerical vectors that capture semantic meaning. This is what makes semantic search possible.</li>
+                        <li><strong>Vector Database:</strong> Store embeddings for fast similarity search. When a user asks a question, we find the closest embeddings to the question embedding.</li>
+                        <li><strong>Retrieval:</strong> Pull the most relevant chunks from the vector database based on semantic similarity.</li>
+                        <li><strong>LLM Response:</strong> Pass the retrieved chunks plus the user's question to an LLM, which generates a grounded, informed response.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Technology Stack</h2>
+                    <p>
+                        Here's what powers RAGMind-AI:
+                    </p>
+                    <div class="tech-stack">
+                        <div class="tech-tag">Python</div>
+                        <div class="tech-tag">FastAPI</div>
+                        <div class="tech-tag">RAG</div>
+                        <div class="tech-tag">BGE</div>
+                        <div class="tech-tag">ChromaDB</div>
+                        <div class="tech-tag">FAISS</div>
+                        <div class="tech-tag">Gemini</div>
+                        <div class="tech-tag">OCR</div>
+                    </div>
+                    <h3>Why these technologies?</h3>
+                    <ul>
+                        <li><strong>Python:</strong> Industry standard for AI/ML. Rich ecosystem for data processing and LLMs.</li>
+                        <li><strong>FastAPI:</strong> Modern, fast web framework for building APIs. Excellent for real-time AI applications.</li>
+                        <li><strong>BGE Embeddings:</strong> A state-of-the-art open-source embedding model. Balances quality and performance.</li>
+                        <li><strong>ChromaDB:</strong> A vector database optimized for embeddings. Easy to integrate and production-ready.</li>
+                        <li><strong>FAISS:</strong> Facebook's vector similarity search library. Enables fast nearest-neighbor search in high-dimensional spaces.</li>
+                        <li><strong>Gemini:</strong> Google's advanced LLM for generating intelligent, grounded responses.</li>
+                        <li><strong>OCR:</strong> For extracting text from scanned PDFs and images.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>What is Complete vs. What is In Development</h2>
+
+                    <div class="status-box complete">
+                        <strong>✅ Complete:</strong> Document processing pipeline, OCR integration, text chunking, embedding generation with BGE, vector storage concepts, system architecture design.
+                    </div>
+
+                    <div class="status-box in-progress">
+                        <strong>🚧 In Progress:</strong> FastAPI backend implementation, full database integration with ChromaDB and FAISS, query processing, LLM response generation, end-to-end testing.
+                    </div>
+
+                    <div class="status-box future">
+                        <strong>❌ Future Work:</strong> Frontend user interface, deployment and hosting, performance optimization, user testing, production-level security, scalability improvements.
+                    </div>
+
+                    <p>
+                        <strong>Important note:</strong> This project is not ready for production use. The backend is still being built, and until that's complete and tested, there's no live API or working demo.
+                    </p>
+                </section>
+
+                <section>
+                    <h2>What I Am Learning From This Project</h2>
+                    <p>
+                        Even though RAGMind-AI isn't finished, it's already teaching me valuable lessons about building AI systems:
+                    </p>
+                    <h3>1. Embedding Quality Matters More Than I Expected</h3>
+                    <p>
+                        The embeddings are the foundation of the entire RAG system. A mediocre embedding model will retrieve irrelevant chunks, and no amount of LLM prompt engineering can fix that. Choosing the right embedding model (like BGE) is critical.
+                    </p>
+                    <h3>2. Chunking is an Art, Not a Science</h3>
+                    <p>
+                        The size and overlap of document chunks significantly affect retrieval quality. Too small, and you lose context. Too large, and you retrieve irrelevant information. I'm still experimenting with what works best for different document types.
+                    </p>
+                    <h3>3. Vector Databases Simplify a Complex Problem</h3>
+                    <p>
+                        Before using ChromaDB and FAISS, I underestimated how complex it would be to manage embeddings at scale. Having a dedicated vector database that handles storage, indexing, and similarity search is invaluable.
+                    </p>
+                    <h3>4. RAG is Not a Silver Bullet</h3>
+                    <p>
+                        RAG improves LLM reliability, but it doesn't solve every problem. The LLM still needs good retrieved context, clear prompts, and proper error handling. Retrieval quality directly impacts response quality.
+                    </p>
+                    <h3>5. Building Backend Systems is Hard</h3>
+                    <p>
+                        The architectural design was the easy part. Implementing a robust, scalable backend with proper API design, error handling, and database management is where the real complexity lies. This is why the project is still in development.
+                    </p>
+                </section>
+
+                <section>
+                    <h2>Next Steps</h2>
+                    <p>
+                        The immediate priorities for RAGMind-AI are:
+                    </p>
+                    <ol>
+                        <li><strong>Complete the FastAPI backend:</strong> Build the endpoints for document upload, query processing, and response retrieval.</li>
+                        <li><strong>Integrate the full database layer:</strong> Connect ChromaDB and FAISS for persistent storage and efficient similarity search.</li>
+                        <li><strong>Test end-to-end:</strong> Ensure the full pipeline works from document ingestion to LLM response.</li>
+                        <li><strong>Optimize performance:</strong> Profile the system to identify bottlenecks and improve response time.</li>
+                        <li><strong>Build a frontend:</strong> Create a user interface so people can actually interact with the system.</li>
+                    </ol>
+                </section>
+
+                <section class="cta-box">
+                    <h3>Interested in RAGMind-AI?</h3>
+                    <p>
+                        The project is still in development, but I'd love to hear your thoughts, suggestions, or questions about RAG systems in general. Reach out through my portfolio or connect on LinkedIn.
+                    </p>
+                    <a href="https://harshverma3105006-ux.github.io/#contact" class="btn">Contact Me</a>
+                </section>
+
+            </article>
+
+            <section class="author-section">
+                <div class="author-image">
+                    <img src="../profile.jpg.jpeg" alt="Harsh Verma">
+                </div>
+                <div class="author-info">
+                    <h3>About Harsh Verma</h3>
+                    <p>
+                        Harsh Verma is an AI/ML Engineer and Generative AI Developer focused on building practical intelligent systems and RAG applications. He's a Computer Science student specializing in Artificial Intelligence and Machine Learning, passionate about exploring how AI can solve real-world problems.
+                    </p>
+                    <div class="author-links">
+                        <a href="https://github.com/harshverma3105006-ux" target="_blank" rel="noopener noreferrer">GitHub</a>
+                        <a href="https://www.linkedin.com/in/harsh-verma-4930ab330/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                        <a href="mailto:harsh2304311530017@gmail.com">Email</a>
+                    </div>
+                </div>
+            </section>
+
+            <div class="back-to-portfolio">
+                <a href="https://harshverma3105006-ux.github.io/">← Back to Portfolio</a>
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Harsh Verma. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>
