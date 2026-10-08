@@ -10,7 +10,7 @@ https://harshverma3105006-ux.github.io/
 
 ## 📌 About Me
 Hi, I'm **Harsh Verma** 👋  
-I am a UX Designer and Web Developer passionate about building modern, responsive, and user-friendly websites.
+I am an AI/ML Engineer and Generative AI Developer passionate about building intelligent systems, practical machine learning solutions, and AI-powered applications.
 
 ---
 
